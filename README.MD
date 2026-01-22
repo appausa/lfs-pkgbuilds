@@ -1,14 +1,16 @@
 ## LFS PKGBUILD SCRIPTS
-This is a collection of PKGBUILD scripts that I have created so far for LFS. This covers all the packages from chapter 6 (bar GRUB, which I don't use) plus additional packages from BLFS and elsewhere as I create them.
+Esta es una colección de scripts PKGBUILD que he creado hasta ahora para LFS. Esto cubre todos los paquetes del capítulo 6 (excepto GRUB, que no uso) más paquetes adicionales de BLFS y otros lugares a medida que los creo.
 
-## NOTES
-Before being able to use these PKGBUILD scripts, you'll of course need to download, build and install pacman. Most of the dependencies for pacman have build instructions on the BLFS except for fakeroot, but that is a straightforward package.
+## NOTAS
+Antes de poder utilizar estos scripts PKGBUILD, por supuesto necesitarás descargar, compilar e instalar pacman. La mayoría de las dependencias de pacman tienen instrucciones de compilación en BLFS, excepto fakeroot, pero ese es un paquete sencillo.
 
-I suggest initially installing pacman and its dependencies into the /tools directory and then follow the book onwards from there. Once you finished configuring your system, package and install pacman and its dependencies so that it will be available from your LFS build once you reboot into it.
+Yo sugerir inicialmente la instalación de pacman y su dependencias en el directorio /tools y entonces seguir el libro adelante de allí. una vez usted acabado configurar tu sistema, paquete y instalar pacman y su dependencias así que lo será disponible de tu lfs construir una vez usted reiniciar eso.
 
-## WARNING
+## ADVERTENCIA
 
-Not all of the packages here follow the instructions directly from the book, while most do you will need to modify some accordingly. Essentially any of the packages in the book that reference the /tools directory will need to be modified to be used. Some other packages also have optimizations specifically for my system which you may not want.
+Básicamente, cualquiera de los paquetes del libro que hacen referencia al directorio /tools deberá modificarse para poder utilizarse. Algunos otros paquetes también tienen optimizaciones específicas para mi sistema que quizás no desees..
 
-## LICENSE
-The bulk of the code used in the PKGBUILDs is taken from the LFS book in which the code therein is under a MIT license. The license and copyright notice is found in the LICENSE file in the top-level directory.
+## LICENCIA 
+La mayor parte del código utilizado en los PKGBUILD se toma del libro LFS, cuyo código está bajo una licencia MIT. El aviso de licencia y derechos de autor se encuentra en el archivo LICENCIA en el directorio de nivel superior.
+
+
