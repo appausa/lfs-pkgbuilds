@@ -212,21 +212,17 @@ Pacman ejecuta las funciones he intala los archivos.
 La parte tzdata de glibc requiere que zic esté instalado en el sistema, lo que significa que debe instalarse después de glibc con pacman -U. Si bien supongo que se podría llamar directamente al binario zic que reside en los directorios src o pkg, pensé que sería más limpio separar la instalación de tzdata en un paquete aparte, de forma similar a como lo hace Arch Linux.
 
 6.10. Adjusting the Toolchain
-I did these steps manually. It didn't feel suitable to (ab)use makepkg/pacman for this purpose.
+I did these steps manually. It didn't Realicé estos pasos manualmente. No me pareció apropiado (ab)utilizar makepkg/pacman para este propósito.
 
-6.15. Bc-1.07.1
-The book wants you to create symlinks for libncurses. I did this manually before building the package.
+6.15. Bc-1.07.1 El libro indica que se deben crear enlaces simbólicos para libncurses. Lo hice manualmente antes de compilar el paquete.
 
-6.20. GCC-7.2.0
-Before building the package, increase the stack size: ulimit -s 32768.
+6.20. GCC-7.2.0 Antes de compilar el paquete, aumente el tamaño de la pila: ulimit -s 32768.
 
-I had to use --force when installing this package, since some libraries already existed on the system.
+Tuve que usar --force al instalar este paquete, ya que algunas bibliotecas ya existían en el sistema.
 
-6.28. Shadow-4.5
-I ran passwd manually.
+6.28. Shadow-4.5 Ejecuté passwd manualmente.
 
-6.34. Bash-4.4
-When creating the package, makepkg told me that "Package contains reference to $srcdir". Using grep -R "$(pwd)/src" pkg/, I found out that Bash installs Makefile.inc to /usr/lib/bash/, which contains a reference to the build directory. On an existing Arch Linux installation, /usr/lib/bash/Makefile.inc also contained a reference to a (non-existing) build directory, so I assume this is benign.
+6.34. Bash-4.4 Al crear el paquete, makepkg me dijo que "El paquete contiene una referencia a $srcdir". Usando grep -R "$(pwd)/src" pkg/, I found out that Bash installs Makefile.inc to /usr/lib/bash/, which contains a reference to the build directory. On an existing Arch Linux installation, /usr/lib/bash/Makefile.inc also contained a reference to a (non-existing) build directory, so I assume this is benign.
 
 Use --force to install this package, since /bin/bash was created as part of 6.6. Creating Essential Files and Symlinks.
 
