@@ -207,10 +207,9 @@ En algunos casos, el libro le dera que mueva un directorio. Mientras trabsja con
 Post-install
 Pacman ejecuta las funciones he intala los archivos.
 
-6.9. Glibc-2.26
-The book wants you to create some symlinks; I did that manually, as I felt it would be out of place in the package.
+6.9. Glibc-2.26 El libro quiere que crees algunos enlaces simbólicos; lo hice manualmente, ya que sentí que estaría fuera de lugar en el paquete.
 
-The tzdata part of glibc requires zic to be installed to the system, which means after glibc was installed with pacman -U. While I suppose you could directly call the zic binary residing in the src or pkg directories, I thought it would be cleaner to split the tzdata installation to a separate package, much like Arch Linux does.
+La parte tzdata de glibc requiere que zic esté instalado en el sistema, lo que significa que debe instalarse después de glibc con pacman -U. Si bien supongo que se podría llamar directamente al binario zic que reside en los directorios src o pkg, pensé que sería más limpio separar la instalación de tzdata en un paquete aparte, de forma similar a como lo hace Arch Linux.
 
 6.10. Adjusting the Toolchain
 I did these steps manually. It didn't feel suitable to (ab)use makepkg/pacman for this purpose.
