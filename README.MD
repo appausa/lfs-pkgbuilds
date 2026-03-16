@@ -222,39 +222,30 @@ Tuve que usar --force al instalar este paquete, ya que algunas bibliotecas ya ex
 
 6.28. Shadow-4.5 Ejecuté passwd manualmente.
 
-6.34. Bash-4.4 Al crear el paquete, makepkg me dijo que "El paquete contiene una referencia a $srcdir". Usando grep -R "$(pwd)/src" pkg/, I found out that Bash installs Makefile.inc to /usr/lib/bash/, which contains a reference to the build directory. On an existing Arch Linux installation, /usr/lib/bash/Makefile.inc also contained a reference to a (non-existing) build directory, so I assume this is benign.
+6.34. Bash-4.4 Al crear el paquete, makepkg me dijo que "El paquete contiene una referencia a $srcdir". Usando grep -R "$(pwd)/src" pkg/, descubrí que Bash instala Makefile.inc en /usr/lib/bash/, que contiene una referencia al directorio de compilación. En una instalación existente de Arch Linux, /usr/lib/bash/Makefile.inc también contenía una referencia a un directorio de compilación (inexistente), así que supongo que esto es inofensivo.
 
-Use --force to install this package, since /bin/bash was created as part of 6.6. Creating Essential Files and Symlinks.
+Utilice --force para instalar este paquete, ya que /bin/bash se creó como parte de la versión 6.6. Creación de archivos y enlaces simbólicos esenciales.
 
-I then re-chrooted, using /bin/bash instead of /tools/bin/bash.
+Luego volví a aplicar chroot, usando /bin/bash en lugar de /tools/bin/bash.
 
-6.40. Perl-5.26.0
-The LFS book tells you to create /etc/hosts. I've chosen to do this manually, rather than to have the Perl package install this file. It doesn't sound right that Perl should own this file. For reference, in Arch Linux, the hosts file is owned by the filesystem package, which contains the base Arch Linux files, so it makes sense that this is created manually in the case of LFS.
+6.40. Perl-5.26.0 El manual de LFS indica que se cree el archivo /etc/hosts. He optado por hacerlo manualmente, en lugar de que el paquete Perl lo instale. No parece lógico que Perl sea el propietario de este archivo. Como referencia, en Arch Linux, el archivo hosts pertenece al paquete del sistema de archivos, que contiene los archivos base de Arch Linux, por lo que tiene sentido que se cree manualmente en el caso de LFS.
 
-Use --force to install this package, since /usr/bin/perl was created as part of 6.6. Creating Essential Files and Symlinks.
+Utilice --force para instalar este paquete, ya que /usr/bin/perl se creó como parte de la versión 6.6. Creación de archivos y enlaces simbólicos esenciales.
 
-6.50. Coreutils-8.27
-For some reason, doing the in place sed (sed -i) on chroot.8 resulted in the file having 000 permissions. I replaced it with a regular sed, redirecting the result to a new file, then using install to copy the file to its destination.
+6.50. Coreutils-8.27 Por alguna razón, al ejecutar sed in situ (sed -i) en chroot.8, el archivo obtuvo permisos 000. Lo reemplacé con un sed normal, redirigiendo el resultado a un nuevo archivo, y luego usé install para copiar el archivo a su destino.
 
-Use --force to install this package, since a number of files already exist (amongst others cat, dd, echo) in /bin (as symlinks to /tools). These were added in 6.6. Creating Essential Files and Symlinks.
+Utilice --force para instalar este paquete, ya que existen varios archivos (entre otros, cat, dd, echo) en /bin (como enlaces simbólicos a /tools). Estos se añadieron en la versión 6.6, sección «Creación de archivos y enlaces simbólicos esenciales».
 
-6.53. Findutils-4.6.0
-As with coreutils, using in place sed set the permissions to 000, so I used the same workaround here.
+6.53. Findutils-4.6.0 Al igual que con coreutils, usar sed en el lugar estableció los permisos a 000, así que usé la misma solución alternativa aquí.
 
-6.63. Sysklogd-1.5.1
-Sysklogd's makefile doesn't support specifying a destination directory when installing (make DESTDIR=/path). I've included a patch that adds this.
+6.63. Sysklogd-1.5.1 El archivo makefile de Sysklogd no admite la especificación de un directorio de destino durante la instalación (make DESTDIR=/ruta). He incluido un parche que añade esta funcionalidad.
 
-Stage 4 - Installing pacman to your final system
-Stage four starts immediately after the last package in chapter six, currently vim. Before continuing with the rest of the chapter, build and install pacman and its dependencies.
+Etapa 4: Instalación de pacman en el sistema final. La etapa cuatro comienza inmediatamente después del último paquete del capítulo seis, que actualmente es vim. Antes de continuar con el resto del capítulo, compile e instale pacman y sus dependencias.
 
-As part of chapter six you should already have installed most of these packages, except for:
+Como parte del capítulo seis, ya deberías haber instalado la mayoría de estos paquetes, excepto:
 
-libarchive
-fakeroot
-pacman
-Use your temporary pacman installation to install them. Remember, we're installing to the final system, not to /tools.
+libarchive fakeroot pacman Utilice su instalación temporal de pacman para instalarlos. Recuerde, estamos instalando en el sistema final, no en /tools.
 
-Stage 5 - Finishing the book
-Finish up the rest of the book manually.
+Etapa 5 - Finalización del libro Termine el resto del libro manualmente.
 
-When restarting my machine, the LFS system wouldn't boot properly. It turned out that many binaries and other files were owned by ben, the user with which I built the packages. I have no idea why that happened, but chowning them to root:root allowed my system to boot.
+Al reiniciar mi máquina, el sistema LFS no arrancaba correctamente. Resultó que muchos binarios y otros archivos pertenecían a Ben, el usuario con el que compilé los paquetes. No tengo ni idea de por qué sucedió, pero al cambiarles el propietario a root:root, mi sistema pudo arrancar.
