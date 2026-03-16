@@ -162,7 +162,7 @@ pacman -U pacman-5.0.2-2-x86_64.pkg.tar.gz
 </pre>
 Instalando paquetes del capítulo seis de el libro LFS ahora al continuar con el descansaremos del libro, porque en vez de intalar paquetes manualmente lo aremos con pacman desde el capítulo seis de el Libro LFS. 
 
-All of the necessary PKGBUILD files can be found in the packages directory, but if you want to learn how to create these, I suggest you only refer to them when you get stuck.
+Todo lo que necesita es que puedas encontrar los archivos PKGBUILD en el directorio packages, pero si quieres leer o crear estos, le sugiero que busque solo referencia de el sitio arch.
 
 Todo lo que necesitas es los archivos PKGBUILD que se encuentran en el directorio de los paquetes, pero si usted desea aprender cómo a crear estos, yo sugerir que  usted sólo mire los que tengo aquí ya creado si te encuentras enredado.
 
@@ -188,9 +188,7 @@ Al escribir  o editar el archivo PKGBUILD pode tener errores. Es importante que 
 
 Si estas con dudas, puedes buscar información  en los repo de Arch Linux, en este github.com. 
 
-Tips
-Source directory
-When calling any of the PKGBUILD functions, makepkg will automatically cd you into the source dir, which is where it will have extracted or symlinked all your source files.
+Consejos Directorio fuente Al llamar a cualquiera de las funciones PKGBUILD, makepkg te llevará automáticamente al directorio fuente, que es donde habrá extraído o creado enlaces simbólicos a todos tus archivos fuente.
 
 Consejos 
 Directorio Fuente  
