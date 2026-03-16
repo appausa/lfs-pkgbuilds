@@ -62,15 +62,13 @@ pkg-config 0.29.2
             --disable-host-tool        \
             --disable-shared           \
             --docdir=/tools/share/doc/
-</pre>
-pkg-config-0.29.2
-<pre>
+
 make
 
 make install
-
+</pre>
 libcap 2.25
-
+<pre>
 make
 
 make RAISE_SETFCAP=no lib=lib prefix=/tools install
