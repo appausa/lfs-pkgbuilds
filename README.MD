@@ -23,17 +23,19 @@ Dependencias de Pacman
 
 Pacman depende de los siguientes paquetes:
 
+<pre>
 zlib
 libarchive
 pkg-config
 fakeroot, que a su vez depende de libcap
-
+</pre>
 La mayoría de estos no forman parte del libro LFS, así que descargue sus fuentes manualmente:
 
+<pre>
 wget https://www.libarchive.org/downloads/libarchive-3.3.2.tar.gz
 wget http://turul.canonical.com/pool/main/f/fakeroot/fakeroot_1.22.orig.tar.bz2
 wget https://sources.archlinux.org/other/pacman/pacman-5.0.2.tar.gz
-
+</pre>
 Compila estos paquetes con el comando siguiente. Al igual que el libro LFS, estos comandos suponen que ha extraído las fuentes relevantes y las ha guardado en el directorio resultante.
 
 zlib 1.2.11
